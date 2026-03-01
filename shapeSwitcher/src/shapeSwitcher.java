@@ -2,10 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class shapeSwitcher extends JFrame {
-
-    private String currentShape = "Triangle";
-    private Color currentColor = Color.BLUE;
-    private shapePanel shapePanel;
+    private final shapePanel shapePanel;
 
     public shapeSwitcher() {
         setTitle("RGB Color Mixer & Shape Switcher");
@@ -43,8 +40,7 @@ public class shapeSwitcher extends JFrame {
         shapeMenu.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         shapeMenu.addActionListener(e -> {
-            currentShape = (String) shapeMenu.getSelectedItem();
-            shapePanel.setShape(currentShape);
+            shapePanel.setShape((String) shapeMenu.getSelectedItem());
         });
 
         JButton redBtn = createColorButton("Red", Color.RED);
@@ -72,14 +68,14 @@ public class shapeSwitcher extends JFrame {
         JButton button = new JButton(text);
         button.setBackground(color);
         button.setForeground(color == Color.GREEN ? Color.BLACK : Color.WHITE);
-        button.setMaximumSize(new Dimension(Integer.MAX_VALUE, 3000));
+        button.setPreferredSize(new Dimension(200, 35));
+        button.setMaximumSize(new Dimension(200, 35));
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         button.addActionListener(e -> {
-            currentColor = color;
-            shapePanel.setColor(currentColor);
+            shapePanel.setColor(color);
             System.out.println("Selected RGB: "
-                    + color.getRed() + ", "
+                    + color.getRed() + ",   "
                     + color.getGreen() + ", "
                     + color.getBlue());
         });
