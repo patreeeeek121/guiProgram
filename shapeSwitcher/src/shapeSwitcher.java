@@ -7,10 +7,10 @@ public class shapeSwitcher extends JFrame {
     public shapeSwitcher() {
         setTitle("RGB Color Mixer & Shape Switcher");
         setSize(700, 500);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // Shape Panel
         shapePanel = new shapePanel();
         shapePanel.setBackground(Color.WHITE);
         shapePanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
@@ -21,7 +21,6 @@ public class shapeSwitcher extends JFrame {
 
         add(shapeWrapper, BorderLayout.CENTER);
 
-        // Control Panel
         JPanel controlPanel = new JPanel();
         controlPanel.setLayout(new BoxLayout(controlPanel, BoxLayout.Y_AXIS));
         controlPanel.setPreferredSize(new Dimension(220, 0));
@@ -84,6 +83,6 @@ public class shapeSwitcher extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new shapeSwitcher().setVisible(true));
+        new shapeSwitcher().setVisible(true);
     }
 }
